@@ -39,7 +39,9 @@
           singleInstance: false,
           // Use immediate functions to initialze the audio context properties
           volumeConnection: (function() {
-            return audioContext.createGainNode();
+            if (audioContext.createGainNode) {
+              return audioContext.createGainNode();
+            }
           }()),
           panConnection: (function() {
             return audioContext.createPanner();
@@ -58,7 +60,7 @@
             }
 
             // Set the volume
-            if (config.volume !== undefined) {
+            if (config.volume && this.volumeConnection) {
               this.volumeConnection.gain.value = config.volume;
             }
 
@@ -133,14 +135,23 @@
 
           // ...will be hoisted
           function soundLoadHandler(event) {
-            console.log(soundToLoad.source);
-            audioContext.decodeAudioData(soundToLoad.loadSound.response, function(buffer)
-            {
-              soundToLoad.buffer = buffer;
-              soundToLoad.hasLoaded = true;
-              soundToLoad.play();
-            });
+            console.log('Try to load: ' + soundToLoad.source);
+
+            // TODO: Map audio MIME type to audio file extension
+            if (new Audio().canPlayType('audio/mpeg')) {
+
+              audioContext.decodeAudioData(soundToLoad.loadSound.response, function(buffer)
+              {
+                soundToLoad.buffer = buffer;
+                soundToLoad.hasLoaded = true;
+                soundToLoad.play();
+              });
+
+            } else {
+              console.log('MP3 is not supported.');
+            }
           }
+
 
           soundToLoad.loadSound.send();
         }
@@ -148,10 +159,15 @@
         var music = Object.create(soundObject);
         music.initialize({source: "audio/circle_of_life.mp3", volume: 1, pan: 0, loop: true, singleInstance: true});
         loadSound(music);
+
       } else {
         // Web Audio API is not available. Ask the user to use a supported browser.
         alert(':-(');
       }
+
+      var path = 'audio/scratches/scratch-07-two.wav';
+      var audio = new Audio(path);
+      audio.play();
     </script>
   </body>
 </html>
