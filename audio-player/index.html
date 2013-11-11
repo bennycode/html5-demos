@@ -7,5 +7,21 @@
   </head>
   <body>
     <div>TODO write content</div>
+    <script>
+      // chimera.labs.oreilly.com/books/1234000001552/ch01.html
+      var contextClass = (window.AudioContext ||
+              window.webkitAudioContext ||
+              window.mozAudioContext ||
+              window.oAudioContext ||
+              window.msAudioContext);
+      if (contextClass) {
+        // Web Audio API is available.
+        var context = new contextClass();
+        alert(':-)');
+      } else {
+        // Web Audio API is not available. Ask the user to use a supported browser.
+        alert(':-(');
+      }
+    </script>
   </body>
 </html>

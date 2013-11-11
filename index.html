@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+          content="width=device-width">
+    <style>
+      /* http://plugins.compzets.com/animatescroll/ */
+      /* default.css */
+
+      @import "http://fonts.googleapis.com/css?family=Lato:300,400,700";
+      @font-face {
+        font-family: "codropsicons";
+        font-style: normal;
+        font-weight: normal;
+        src: url("fonts/codropsicons/codropsicons.eot?#iefix") format("embedded-opentype"), url("fonts/codropsicons/codropsicons.woff") format("woff"), url("fonts/codropsicons/codropsicons.ttf") format("truetype"), url("fonts/codropsicons/codropsicons.svg#codropsicons") format("svg");
+      }
+      *, *:after, *:before {
+        -moz-box-sizing: border-box;
+      }
+      body, html {
+        font-size: 15px;
+        margin: 0;
+        padding: 0;
+      }
+      .clearfix:before, .clearfix:after {
+        content: " ";
+        display: table;
+      }
+      .clearfix:after {
+        clear: both;
+      }
+      body {
+        background: none repeat scroll 0 0 #F9F9F9;
+        color: #89867E;
+        font-family: 'Lato',Calibri,Arial,sans-serif;
+      }
+      a {
+        color: #333333;
+        text-decoration: none;
+      }
+      a:hover {
+        color: #FFFFFF;
+      }
+      img {
+        border: 0 none;
+      }
+      .main, .container > header {
+        margin: 0 auto;
+        padding: 2em;
+        width: 100%;
+      }
+      .main {
+        max-width: 82.667em;
+        min-height: 20em;
+      }
+      .container > header {
+        background: none repeat scroll 0 0 rgba(0, 0, 0, 0.01);
+        font-size: 16px;
+        padding: 4em 2em 3em;
+        text-align: center;
+      }
+      .container > header h1 {
+        font-size: 2.625em;
+        font-weight: 700;
+        line-height: 1.3;
+        margin: 0;
+      }
+      .container > header span {
+        color: #CECCC6;
+        display: block;
+        font-size: 60%;
+        font-weight: 300;
+        padding: 0 0 0.6em 0.1em;
+      }
+      @media screen and (max-width: 25em) {
+        .codrops-icon span {
+          display: none;
+        }
+        .container > header {
+          font-size: 75%;
+        }
+      }
+
+      /* component.css */
+
+      @font-face {
+        font-family: "icomoon";
+        font-style: normal;
+        font-weight: normal;
+        src: url("fonts/icomoon.eot?#iefix") format("embedded-opentype"), 
+          url("fonts/icomoon.woff") format("woff"), 
+          url("fonts/icomoon.ttf") format("truetype"), 
+          url("fonts/icomoon.svg#icomoon") format("svg");
+      }
+      @media not all {
+        @font-face {
+          font-family: "icomoon";
+          src: url("fonts/icomoon.svg#icomoon") format("svg");
+        }
+      }
+      .icon-team, .icon-blog, .icon-home, .icon-portfolio, .icon-services, .icon-contact, .icon-menu {
+        font-family: 'icomoon';
+        font-style: normal;
+        font-variant: normal;
+        font-weight: normal;
+        line-height: 1;
+        text-transform: none;
+      }
+      .icon-team:before {
+        content: "";
+      }
+      .icon-blog:before {
+        content: "";
+      }
+      .icon-home:before {
+        content: "";
+      }
+      .icon-portfolio:before {
+        content: "";
+      }
+      .icon-services:before {
+        content: "";
+      }
+      .icon-contact:before {
+        content: "";
+      }
+      .icon-menu:before {
+        content: "";
+      }
+      a, li {
+      }
+      .nav ul {
+        font-size: 1.5em;
+        font-weight: 300;
+        list-style: none outside none;
+        margin: 0;
+        max-width: 1240px;
+        padding: 0;
+      }
+      .nav li span {
+        display: block;
+      }
+      .nav a {
+        color: rgba(249, 249, 249, 0.9);
+        display: block;
+        text-decoration: none;
+        transition: color 0.5s ease 0s, background 0.5s ease 0s, height 0.5s ease 0s;
+      }
+      .nav i {
+        transform: translate3d(0px, 0px, 0px);
+      }
+      a, button {
+      }
+      .no-touch .nav ul:hover a {
+        color: rgba(249, 249, 249, 0.5);
+      }
+      .no-touch .nav ul:hover a:hover {
+        color: rgba(249, 249, 249, 0.99);
+      }
+      .nav li:nth-child(6n+1) {
+        background: none repeat scroll 0 0 #D06503;
+      }
+      .nav li:nth-child(6n+2) {
+        background: none repeat scroll 0 0 #E9931A;
+      }
+      .nav li:nth-child(6n+3) {
+        background: none repeat scroll 0 0 #1691BE;
+      }
+      .nav li:nth-child(6n+4) {
+        background: none repeat scroll 0 0 #166BA2;
+      }
+      .nav li:nth-child(6n+5) {
+        background: none repeat scroll 0 0 #1B3647;
+      }
+      .nav li:nth-child(6n+6) {
+        background: none repeat scroll 0 0 #152836;
+      }
+      @media (min-width: 50em) {
+        .nav li {
+          float: left;
+          text-align: center;
+          transition: border 0.5s ease 0s;
+          width: 16.6667%;
+        }
+        .nav a {
+          display: block;
+          width: auto;
+        }
+        .no-touch .nav li:nth-child(6n+1) a:hover, .no-touch .nav li:nth-child(6n+1) a:active, .no-touch .nav li:nth-child(6n+1) a:focus {
+          border-bottom: 4px solid #AE4E01;
+        }
+        .no-touch .nav li:nth-child(6n+2) a:hover, .no-touch .nav li:nth-child(6n+2) a:active, .no-touch .nav li:nth-child(6n+2) a:focus {
+          border-bottom: 4px solid #BF7514;
+        }
+        .no-touch .nav li:nth-child(6n+3) a:hover, .no-touch .nav li:nth-child(6n+3) a:active, .no-touch .nav li:nth-child(6n+3) a:focus {
+          border-bottom: 4px solid #0C6E95;
+        }
+        .no-touch .nav li:nth-child(6n+4) a:hover, .no-touch .nav li:nth-child(6n+4) a:active, .no-touch .nav li:nth-child(6n+4) a:focus {
+          border-bottom: 4px solid #0A4B75;
+        }
+        .no-touch .nav li:nth-child(6n+5) a:hover, .no-touch .nav li:nth-child(6n+5) a:active, .no-touch .nav li:nth-child(6n+5) a:focus {
+          border-bottom: 4px solid #10222C;
+        }
+        .no-touch .nav li:nth-child(6n+6) a:hover, .no-touch .nav li:nth-child(6n+6) a:active, .no-touch .nav li:nth-child(6n+6) a:focus {
+          border-bottom: 4px solid #091219;
+        }
+        .icon {
+          padding-top: 1.4em;
+        }
+        .icon + span {
+          margin-top: 2.1em;
+          transition: margin 0.5s ease 0s;
+        }
+        .nav a {
+          height: 9em;
+        }
+        .no-touch .nav a:hover, .nav a:active, .nav a:focus {
+          height: 10em;
+        }
+        .no-touch .nav a:hover .icon + span {
+          margin-top: 3.2em;
+          transition: margin 0.5s ease 0s;
+        }
+        .nav i {
+          background: none repeat scroll 0 0 rgba(255, 255, 255, 0.1);
+          border-radius: 50%;
+          box-shadow: 0 0 0 30px rgba(0, 0, 0, 0);
+          display: inline-block;
+          font-size: 1.8em;
+          margin: 0 auto;
+          padding: 0.4em;
+          position: relative;
+          transform: translate3d(0px, 0px, 0px);
+          transition: box-shadow 0.6s ease-in-out 0s;
+        }
+        .no-touch .nav a:hover i, .no-touch .nav a:active i, .no-touch .nav a:focus i {
+          box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.2);
+          transition: box-shadow 0.4s ease-in-out 0s;
+        }
+      }
+      @media (min-width: 50em) and (max-width: 61.25em) {
+        .nav ul {
+          font-size: 1.2em;
+        }
+      }
+      @media (max-width: 49.938em) {
+        .no-touch .nav ul li:nth-child(6n+1) a:hover, .no-touch .nav ul li:nth-child(6n+1) a:active, .no-touch .nav ul li:nth-child(6n+1) a:focus {
+          background: none repeat scroll 0 0 #E37714;
+        }
+        .no-touch .nav li:nth-child(6n+2) a:hover, .no-touch .nav li:nth-child(6n+2) a:active, .no-touch .nav li:nth-child(6n+2) a:focus {
+          background: none repeat scroll 0 0 #F5A029;
+        }
+        .no-touch .nav li:nth-child(6n+3) a:hover, .no-touch .nav li:nth-child(6n+3) a:active, .no-touch .nav li:nth-child(6n+3) a:focus {
+          background: none repeat scroll 0 0 #2CA8DB;
+        }
+        .no-touch .nav li:nth-child(6n+4) a:hover, .no-touch .nav li:nth-child(6n+4) a:active, .no-touch .nav li:nth-child(6n+4) a:focus {
+          background: none repeat scroll 0 0 #1F78B0;
+        }
+        .no-touch .nav li:nth-child(6n+5) a:hover, .no-touch .nav li:nth-child(6n+5) a:active, .no-touch .nav li:nth-child(6n+5) a:focus {
+          background: none repeat scroll 0 0 #27465A;
+        }
+        .no-touch .nav li:nth-child(6n+6) a:hover, .no-touch .nav li:nth-child(6n+6) a:active, .no-touch .nav li:nth-child(6n+6) a:focus {
+          background: none repeat scroll 0 0 #203644;
+        }
+        .nav ul li {
+          transition: background 0.5s ease 0s;
+        }
+      }
+      @media (min-width: 32.5em) and (max-width: 49.938em) {
+        .nav li {
+          display: block;
+          float: left;
+          width: 50%;
+        }
+        .nav a {
+          padding: 0.8em;
+        }
+        .nav li span, .nav li span.icon {
+          display: inline-block;
+        }
+        .nav li span.icon {
+          width: 50%;
+        }
+        .nav li .icon + span {
+          font-size: 1em;
+        }
+        .icon + span {
+          position: relative;
+          top: -0.2em;
+        }
+        .nav li i {
+          background: none repeat scroll 0 0 rgba(255, 255, 255, 0.1);
+          border: 4px solid rgba(0, 0, 0, 0);
+          border-radius: 50%;
+          display: inline-block;
+          font-size: 1.5em;
+          padding: 8% 9%;
+          transition: border 0.5s ease 0s;
+        }
+        .no-touch .nav li:hover i, .no-touch .nav li:active i, .no-touch .nav li:focus i {
+          border: 4px solid rgba(255, 255, 255, 0.1);
+        }
+      }
+      @media (min-width: 32.5em) and (max-width: 38.688em) {
+        .nav li span.icon {
+          width: 50%;
+        }
+        .nav li .icon + span {
+          font-size: 0.9em;
+        }
+      }
+      .nav .navtoogle {
+        -moz-border-bottom-colors: none;
+        -moz-border-left-colors: none;
+        -moz-border-right-colors: none;
+        -moz-border-top-colors: none;
+        background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+        border-color: -moz-use-text-color -moz-use-text-color #DDDDDD;
+        border-image: none;
+        border-style: none none solid;
+        border-width: medium medium 4px;
+        color: #07100F;
+        cursor: pointer;
+        display: none;
+        font-family: 'Lato',Calibri,Arial,sans-serif;
+        font-size: 1.2em;
+        font-weight: normal;
+        padding: 0.5em 0.5em 0.8em;
+        text-align: left;
+        width: 100%;
+      }
+      .icon-menu {
+        font-size: 1.6em;
+        line-height: 0;
+        position: relative;
+        top: 3px;
+      }
+      @media (max-width: 32.438em) {
+        .nav .navtoogle {
+          display: block;
+          margin: 0;
+        }
+        .no-js .nav ul {
+          max-height: 30em;
+          overflow: hidden;
+        }
+        .js .nav ul {
+          max-height: 0;
+          overflow: hidden;
+        }
+        .js .nav .active + ul {
+          max-height: 30em;
+          overflow: hidden;
+          transition: max-height 0.4s ease 0s;
+        }
+        .nav li span {
+          display: inline-block;
+          height: 100%;
+        }
+        .nav a {
+          padding: 0.5em;
+        }
+        .icon + span {
+          font-size: 0.8em;
+          margin-left: 1em;
+        }
+        .nav li:nth-child(6n+1) {
+          border-left: 8px solid #AE4E01;
+        }
+        .nav li:nth-child(6n+2) {
+          border-left: 8px solid #BF7514;
+        }
+        .nav li:nth-child(6n+3) {
+          border-left: 8px solid #0D6F96;
+        }
+        .nav li:nth-child(6n+4) {
+          border-left: 8px solid #0A4B75;
+        }
+        .nav li:nth-child(6n+5) {
+          border-left: 8px solid #10222C;
+        }
+        .nav li:nth-child(6n+6) {
+          border-left: 8px solid #091219;
+        }
+        .touch .nav a {
+          padding: 0.8em;
+        }
+      }
+
+      /* bennyn.css */
+      .nav a {
+        /*height: 107px;*/
+      }
+    </style>
+    <!--
+    <link rel="stylesheet"
+          href="//netdna.bootstrapcdn.com/font-awesome/3.2.0/css/font-awesome.min.css" 
+    />
+    -->
+  </head>
+  <body>
+    <div class="main clearfix">
+      <nav class="nav" id="menu"><button aria-hidden="true" class="navtoogle" id="menutoggle" type="button"><i class="icon-menu" aria-hidden="true"> </i> Menu</button>					
+        <ul>
+          <li>
+            <a href="audio-player/index.html">
+              <span class="icon">
+                <i class="icon-home" aria-hidden="true"></i>
+              </span>
+              <span>Audio</span>
+            </a>
+          </li>
+          <li>
+            <a onclick="$('#section-2').animatescroll();" href="#">
+              <span class="icon"> 
+                <i class="icon-services" aria-hidden="true"></i>
+              </span>
+              <span>What is it?</span>
+            </a>
+          </li>
+          <li>
+            <a onclick="$('#section-3').animatescroll();" href="#">
+              <span class="icon">
+                <i class="icon-portfolio" aria-hidden="true"></i>
+              </span>
+              <span>Options</span>
+            </a>
+          </li>
+          <li>
+            <a onclick="$('#section-4').animatescroll();" href="#">
+              <span class="icon">
+                <i class="icon-blog" aria-hidden="true"></i>
+              </span>
+              <span>Easing Effects</span>
+            </a>
+          </li>
+          <li>
+            <a onclick="$('#section-5').animatescroll();" href="#">
+              <span class="icon">
+                <i class="icon-team" aria-hidden="true"></i>
+              </span>
+              <span>Usage</span>
+            </a>
+          </li>
+          <li>
+            <a onclick="$('#section-6').animatescroll();" href="#">
+              <span class="icon">
+                <i class="icon-contact" aria-hidden="true"></i>
+              </span>
+              <span>About Me</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </body>
+</html>
