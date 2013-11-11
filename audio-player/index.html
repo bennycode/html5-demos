@@ -136,9 +136,23 @@
           // ...will be hoisted
           function soundLoadHandler(event) {
             console.log('Try to load: ' + soundToLoad.source);
+            var path = soundToLoad.source;
+            var extension = path.substr(path.lastIndexOf('.') + 1);
+            var audioType = 'audio/wav';
 
-            // TODO: Map audio MIME type to audio file extension
-            if (new Audio().canPlayType('audio/mpeg')) {
+            switch (extension.toLowerCase()) {
+              case 'mp3':
+                audioType = 'audio/mpeg';
+                break;
+              case 'm4a':
+              case 'mp4':
+                audioType = 'audio/aac';
+              case 'ogg':
+                audioType = 'audio/ogg';
+                break;
+            }
+
+            if (new Audio().canPlayType(audioType)) {
 
               audioContext.decodeAudioData(soundToLoad.loadSound.response, function(buffer)
               {
