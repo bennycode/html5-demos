@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Draw SVG String on Canvas in Chrome</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+  </head>
+  <body>
+    <canvas id="myCanvas"></canvas> 
+    <script>
+      /**
+       * This example has been tested with Google Chrome 30.
+       * On Mozilla Firefox 24 it didn't work.
+       */
+      
+      // SVG (blue rectangle) that we want to display
+      var svg = {
+        header: 'data:image/svg+xml',
+        data: '<svg xmlns="http://www.w3.org/2000/svg" version="1.1"><rect width="300" height="100" style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)"/></svg>'
+      };
+
+      // Setup canvas
+      var canvas = document.getElementById('myCanvas');
+      canvas.width = 640;
+      canvas.height = 480;
+
+      if (canvas.getContext) {
+        // Get canvas context
+        var context = canvas.getContext('2d');
+        // Setup new image object
+        var image = new Image();
+        // Make sure that there is an event listener 
+        // BEFORE attaching an image source
+        image.onload = function() {
+          context.drawImage(image, 0, 0);
+        };
+        // Init the image with our SVG
+        image.src = svg.header + ',' + svg.data;
+      }
+    </script>
+  </body>
+</html>
