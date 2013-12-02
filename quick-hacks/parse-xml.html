@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+  </head>
+  <body>
+    <div>TODO write content</div>
+    <script>
+      var xml = '<?xml version="1.0" encoding="UTF-8"?>' +
+              '<myRoot>' +
+              '<myElement>Hello World!</myElement>' +
+              '</myRoot>';
+
+      var parser;
+      var xmlDocument;
+
+      if (window.DOMParser) {
+        parser = new DOMParser();
+        xmlDocument = parser.parseFromString(xml, "text/xml");
+      }
+      else {
+        xmlDocument = new ActiveXObject("Microsoft.XMLDOM");
+        xmlDocument.async = false;
+        xmlDocument.loadXML(xml);
+      }
+      
+      console.log(typeof xmlDocument);
+    </script>
+  </body>
+</html>
