@@ -21,6 +21,12 @@
   transition: unit(@duration, s) @easing;
 }
 
+.transform (@rotationParam: 0) {
+  -webkit-transform: perspective(@perspective) rotateY(unit(@rotationParam, deg));
+  -moz-transform: perspective(unit(@perspective, px)) rotateY(unit(@rotationParam, deg));
+  transform: perspective(unit(@perspective, px)) rotateY(unit(@rotationParam, deg));
+}
+
 /*
   Notes:
   - IE10 needs the perspective within the transform property
@@ -51,9 +57,7 @@
       -moz-backface-visibility: hidden;
       backface-visibility: hidden;
 
-      -webkit-transform: perspective(@perspective) rotateY(0deg);
-      -moz-transform: perspective(unit(@perspective, px)) rotateY(0deg);
-      transform: perspective(unit(@perspective, px)) rotateY(0deg);
+      .transform();
 
     }
 
@@ -66,9 +70,7 @@
       -moz-backface-visibility: hidden;
       backface-visibility: hidden;
 
-      -webkit-transform: perspective(@perspective) rotateY(unit(@rotation, deg));
-      -moz-transform: perspective(unit(@perspective, px)) rotateY(unit(@rotation, deg));
-      transform: perspective(unit(@perspective, px)) rotateY(unit(@rotation, deg));
+      .transform(@rotation);
 
     }
 
@@ -79,17 +81,13 @@
 
     .front {
 
-      -webkit-transform: perspective(@perspective) rotateY(unit(-@rotation, deg));
-      -moz-transform: perspective(unit(@perspective, px)) rotateY(unit(-@rotation, deg));
-      transform: perspective(unit(@perspective, px)) rotateY(unit(-@rotation, deg));
+      .transform(-1 * @rotation);
 
     }
 
     .back {
 
-      -webkit-transform: perspective(@perspective) rotateY(0);
-      -moz-transform: perspective(unit(@perspective, px)) rotateY(0);
-      transform: perspective(unit(@perspective, px)) rotateY(0);
+      .transform();
 
     }
 
