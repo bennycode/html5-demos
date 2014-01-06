@@ -1,0 +1,48 @@
+.container {
+  width: 324px;
+  height: 412px;
+  position: relative;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000px;
+  perspective: 1000;
+}
+.container .card {
+  width: 100%;
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  transition: 0.5s;
+}
+.container .card .face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.container .card .face.back {
+  background-color: bisque;
+  z-index: 1;
+  -webkit-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
+  transform: perspective(1000px) rotateY(-180deg);
+}
+.container .card .face.front {
+  background-color: lightblue;
+  z-index: 2;
+}
+.container:hover .card {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  transform: perspective(1000px) rotateY(180deg);
+}
+/*
+  Notes:
+  - IE10 needs the perspective within the transform property
+  - Firefox needs the perspective set with a "px" unit
+  - Everyone but Chrome need the container to be "relative"
+*/
