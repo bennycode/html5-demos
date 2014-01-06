@@ -14,6 +14,13 @@
 @front-face-color: lightblue;
 @back-face-color: bisque;
 
+// Mixins
+.transition () {
+  -webkit-transition: unit(@duration, s) @easing;
+  -moz-transition: unit(@duration, s) @easing;
+  transition: unit(@duration, s) @easing;
+}
+
 /*
   Notes:
   - IE10 needs the perspective within the transform property
@@ -33,9 +40,7 @@
     height: 100%;
     position: absolute;
 
-    -webkit-transition: unit(@duration, s) @easing;
-    -moz-transition: unit(@duration, s) @easing;
-    transition: unit(@duration, s) @easing;
+    .transition();
 
     &.front {
 
