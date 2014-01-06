@@ -1,3 +1,9 @@
+/*
+  Notes:
+  - IE10 needs the perspective within the transform property
+  - Firefox needs the perspective set with a "px" unit
+  - Everyone but Chrome need the container to be "relative"
+*/
 .container {
   width: 324px;
   height: 412px;
@@ -13,37 +19,31 @@
 }
 .container .face.front {
   z-index: 2;
-  background-color: lightblue;
+  background-color: #add8e6;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
-  -webkit-transform: perspective(800px) rotateY(0deg);
-  -moz-transform: perspective(800px) rotateY(0deg);
-  transform: perspective(800px) rotateY(0deg);
+  -webkit-transform: perspective(1000) rotateY(0deg);
+  -moz-transform: perspective(1000px) rotateY(0deg);
+  transform: perspective(1000px) rotateY(0deg);
 }
 .container .face.back {
   z-index: 1;
-  background-color: bisque;
+  background-color: #ffe4c4;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
-  -webkit-transform: perspective(800px) rotateY(180deg);
-  -moz-transform: perspective(800px) rotateY(180deg);
-  transform: perspective(800px) rotateY(180deg);
+  -webkit-transform: perspective(1000) rotateY(180deg);
+  -moz-transform: perspective(1000px) rotateY(180deg);
+  transform: perspective(1000px) rotateY(180deg);
 }
 .container:hover .front {
-  -webkit-transform: perspective(800px) rotateY(-180deg);
-  -moz-transform: perspective(800px) rotateY(-180deg);
-  transform: perspective(800px) rotateY(-180deg);
+  -webkit-transform: perspective(1000) rotateY(-180deg);
+  -moz-transform: perspective(1000px) rotateY(-180deg);
+  transform: perspective(1000px) rotateY(-180deg);
 }
 .container:hover .back {
-  -webkit-transform: perspective(800px) rotateY(0);
-  -moz-transform: perspective(800px) rotateY(0);
-  transform: perspective(800px) rotateY(0);
+  -webkit-transform: perspective(1000) rotateY(0);
+  -moz-transform: perspective(1000px) rotateY(0);
+  transform: perspective(1000px) rotateY(0);
 }
-/*
-  Notes:
-  - IE10 needs the perspective within the transform property
-  - Firefox needs the perspective set with a "px" unit
-  - Everyone but Chrome need the container to be "relative"
-*/

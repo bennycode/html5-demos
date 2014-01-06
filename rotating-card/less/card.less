@@ -1,7 +1,30 @@
+// Dimension
+@width: 324;
+@height: 412;
+
+// Transition
+@duration: 0.5;
+@easing: ease;
+
+// Transformation
+@rotation: 180;
+@perspective: 1000;
+
+// Style
+@front-face-color: lightblue;
+@back-face-color: bisque;
+
+/*
+  Notes:
+  - IE10 needs the perspective within the transform property
+  - Firefox needs the perspective set with a "px" unit
+  - Everyone but Chrome need the container to be "relative"
+*/
+
 .container {
 
-  width: 324px; 
-  height: 412px;
+  width: unit(@width, px); 
+  height: unit(@height, px); 
   position: relative;
 
   .face {
@@ -10,68 +33,61 @@
     height: 100%;
     position: absolute;
 
-    -webkit-transition: 0.5s ease;
-    -moz-transition: 0.5s ease;
-    transition: 0.5s ease;
+    -webkit-transition: unit(@duration, s) @easing;
+    -moz-transition: unit(@duration, s) @easing;
+    transition: unit(@duration, s) @easing;
 
     &.front {
 
       z-index: 2;
-      background-color: lightblue;
+      background-color: @front-face-color;
 
       -webkit-backface-visibility: hidden;
       -moz-backface-visibility: hidden;
       backface-visibility: hidden;
 
-      -webkit-transform: perspective(800px) rotateY(0deg);
-      -moz-transform: perspective(800px) rotateY(0deg);
-      transform: perspective(800px) rotateY(0deg);
+      -webkit-transform: perspective(@perspective) rotateY(0deg);
+      -moz-transform: perspective(unit(@perspective, px)) rotateY(0deg);
+      transform: perspective(unit(@perspective, px)) rotateY(0deg);
 
     }
 
     &.back {
 
       z-index: 1;
-      background-color: bisque;
+      background-color: @back-face-color;
 
       -webkit-backface-visibility: hidden;
       -moz-backface-visibility: hidden;
       backface-visibility: hidden;
 
-      -webkit-transform: perspective(800px) rotateY(180deg);
-      -moz-transform: perspective(800px) rotateY(180deg);
-      transform: perspective(800px) rotateY(180deg);
+      -webkit-transform: perspective(@perspective) rotateY(unit(@rotation, deg));
+      -moz-transform: perspective(unit(@perspective, px)) rotateY(unit(@rotation, deg));
+      transform: perspective(unit(@perspective, px)) rotateY(unit(@rotation, deg));
 
     }
 
-
   }
 
-  // Turn card
+  // Turns the card
   &:hover {
 
     .front {
 
-      -webkit-transform: perspective(800px) rotateY(-180deg);
-      -moz-transform: perspective(800px) rotateY(-180deg);
-      transform: perspective(800px) rotateY(-180deg);
+      -webkit-transform: perspective(@perspective) rotateY(unit(-@rotation, deg));
+      -moz-transform: perspective(unit(@perspective, px)) rotateY(unit(-@rotation, deg));
+      transform: perspective(unit(@perspective, px)) rotateY(unit(-@rotation, deg));
 
     }
 
     .back {
 
-      -webkit-transform: perspective(800px) rotateY(0);
-      -moz-transform: perspective(800px) rotateY(0);
-      transform: perspective(800px) rotateY(0);
+      -webkit-transform: perspective(@perspective) rotateY(0);
+      -moz-transform: perspective(unit(@perspective, px)) rotateY(0);
+      transform: perspective(unit(@perspective, px)) rotateY(0);
 
     }
 
   }
-}
 
-/*
-  Notes:
-  - IE10 needs the perspective within the transform property
-  - Firefox needs the perspective set with a "px" unit
-  - Everyone but Chrome need the container to be "relative"
-*/
+}
