@@ -15,6 +15,12 @@
 @back-face-color: bisque;
 
 // Mixins
+.backface-visibility (@visiblity: hidden) {
+  -webkit-backface-visibility: @visiblity;
+  -moz-backface-visibility: @visiblity;
+  backface-visibility: @visiblity;
+}
+
 .transition () {
   -webkit-transition: unit(@duration, s) @easing;
   -moz-transition: unit(@duration, s) @easing;
@@ -46,16 +52,13 @@
     height: 100%;
     position: absolute;
 
+    .backface-visibility();
     .transition();
 
     &.front {
 
       z-index: 2;
       background-color: @front-face-color;
-
-      -webkit-backface-visibility: hidden;
-      -moz-backface-visibility: hidden;
-      backface-visibility: hidden;
 
       .transform();
 
@@ -65,10 +68,6 @@
 
       z-index: 1;
       background-color: @back-face-color;
-
-      -webkit-backface-visibility: hidden;
-      -moz-backface-visibility: hidden;
-      backface-visibility: hidden;
 
       .transform(@rotation);
 
