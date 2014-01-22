@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Project Zeta Team Shuffler</title>
+    <link rel="stylesheet" href="themes/blue/style.css" />
+    <link rel="stylesheet" href="css/zeta.css" />
+  </head>
+  <body>
+    <div id="background"></div>
+    <div id="content">
+      <h1 class="title">
+        <img class="logo" src="images/logo.png" alt="Zeta Logo">
+        PROJECT ZETA<br/>TEAM SHUFFLER
+      </h1>
+      <table id="teamMemberTable" class="tablesorter"> 
+        <thead> 
+          <tr> 
+            <th>Name</th> 
+            <th>Team (old)</th>
+            <th>Team (new)</th> 
+          </tr> 
+        </thead> 
+        <tbody data-bind="foreach: $root"> 
+          <tr data-bind="css: { even: $index()%2 }">
+            <td data-bind="html: $data.name"></td>
+            <td data-bind="html: $data.originalTeam"></td>
+            <td data-bind="html: $data.newTeam"></td>
+          </tr>
+        </tbody> 
+      </table> 
+      <!-- External libraries -->
+      <script src="js/libs/jquery-2.0.3.min.js"></script>
+      <script src="js/libs/jquery.tablesorter.min.js"></script>
+      <script src="js/libs/knockout-2.3.0.js"></script>
+      <!-- Zeta Team Shuffler -->
+      <script src="js/Zeta/Member.js"></script>
+      <script src="js/Zeta/TeamData.js"></script>
+      <script src="js/Zeta/TeamShuffler.js"></script>
+      <script>
+        jQuery(document).ready(function($) {
+          var table = document.getElementById('teamMemberTable');
+
+          $.ajax({
+            url: './list.txt'
+          }).done(function(response) {
+
+            Zeta.TeamShuffler.setListData(response);
+            var members = Zeta.TeamShuffler.shuffle();
+            ko.applyBindings(members, table);
+            $(table).tablesorter(({
+              sortList: [[2, 0]]
+            }));
+
+          }).error(function() {
+            alert('This page must be run on a web server, "file:///" will not work.');
+          });
+
+        });
+      </script>
+    </div>
+  </body>
