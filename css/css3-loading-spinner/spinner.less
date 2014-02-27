@@ -1,0 +1,37 @@
+@import "lesshat-2.0.15.prefixed.less";
+
+/* Page */
+html {
+  background-color: black;
+}
+
+/* Spinner */
+.lh-keyframes(~'spin, 0%{ transform: scale(0deg); } 100%{ transform: rotate(360deg); }');
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 28px;
+  height: 28px;
+  margin: -14px 0 0 -14px;
+  .spinner {
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    width: 26px;
+    height: 26px;
+    .lh-animation(spin 1s infinite linear);
+    .mask {
+      width: 12px;
+      height: 12px;
+      overflow: hidden;
+      .maskedCircle {
+        width: 20px;
+        height: 20px;
+        border-radius: 12px;
+        border: 3px solid white;
+      }
+    }
+  }
+}
