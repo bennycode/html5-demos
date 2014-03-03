@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <script src="/html5-demos/lib/jquery/2.1.0/jquery.js"></script>
+    <script src="/html5-demos/lib/hogan.js/2.0/hogan.js"></script>
+    <script src="/html5-demos/lib/knockout/3.0/knockout-min.js"></script>
+    <script id="person-template" type= "text/mustache">
+      <h3 data-bind="text: name"></h3>
+      <p>Credits: <span data-bind="text: credits"></span></p>
+    </script>
+  </head>
+  <body>
+    <div data-bind="template: { name: 'person-template', data: buyer }"></div>
+    <div data-bind="template: { name: 'person-template', data: seller }"></div>
+    <script src="js/main.js"></script>
+  </body>
+</html>
