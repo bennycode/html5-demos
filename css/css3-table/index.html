@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      /* http://www.smashingmagazine.com/2008/08/13/top-10-css-table-designs/ */
+      /*
+      table {
+        font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+        font-size: 12px;
+        background: #fff;
+        width: 480px;
+        border-collapse: collapse;
+        text-align: left;
+        margin: 20px;
+      }
+
+      th {
+        font-size: 14px;
+        font-weight: normal;
+        color: #039;
+        border-bottom: 2px solid #6678b1;
+        padding: 10px 8px;
+      }
+      */
+
+      .table {
+        display: table;
+        border-spacing: 2px;
+        border-color: gray;
+      }
+
+      .thead {
+        display: table-header-group;
+        vertical-align: middle;
+        border-color: inherit;
+      }
+
+      .tbody {
+        display: table-row-group;
+        vertical-align: middle;
+        border-color: inherit;
+      }
+
+      .tr {
+        display: table-row;
+        vertical-align: inherit;
+        border-color: inherit;
+      }
+
+      .td, .th {
+        display: table-cell;
+        vertical-align: inherit;
+      }
+
+      .th {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h2>HTML Table</h2>
+
+    <table summary="Employee Pay Sheet">
+      <thead>
+        <tr>
+          <th scope="col">Employee</th>
+          <th scope="col">Salary</th>
+          <th scope="col">Bonus</th>
+          <th scope="col">Supervisor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Stephen C. Cox</td>
+          <td>$300</td>
+          <td>$50</td>
+          <td>Bob</td>
+        </tr>
+        <tr>
+          <td>Josephin Tan</td>
+          <td>$150</td>
+          <td>-</td>
+          <td>Annie</td>
+        </tr>
+        <tr>
+          <td>Joyce Ming</td>
+          <td>$200</td>
+          <td>$35</td>
+          <td>Andy</td>
+        </tr>
+        <tr>
+          <td>James A. Pentel</td>
+          <td>$175</td>
+          <td>$25</td>
+          <td>Annie</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>CSS Table</h2>
+
+    <div class="table" data-summary="Employee Pay Sheet">
+      <div class="thead">
+        <div class="tr">
+          <div class="th" data-scope="col">Employee</div>
+          <div class="th" data-scope="col">Salary</div>
+          <div class="th" data-scope="col">Bonus</div>
+          <div class="th" data-scope="col">Supervisor</div>
+        </div>
+      </div>
+      <div class="tbody">
+        <div class="tr">
+          <div class="td">Stephen C. Cox</div>
+          <div class="td">$300</div>
+          <div class="td">$50</div>
+          <div class="td">Bob</div>
+        </div>
+        <div class="tr">
+          <div class="td">Josephin Tan</div>
+          <div class="td">$150</div>
+          <div class="td">-</div>
+          <div class="td">Annie</div>
+        </div>
+        <div class="tr">
+          <div class="td">Joyce Ming</div>
+          <div class="td">$200</div>
+          <div class="td">$35</div>
+          <div class="td">Andy</div>
+        </div>
+        <div class="tr">
+          <div class="td">James A. Pentel</div>
+          <div class="td">$175</div>
+          <div class="td">$25</div>
+          <div class="td">Annie</div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
